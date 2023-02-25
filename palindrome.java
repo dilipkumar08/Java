@@ -1,43 +1,30 @@
-package Day1;
-import java.util.Scanner;
 
-public class p5 
-{
+import java.util.*;
+public class palindrome {
 
-	public static void main(String[] args) 
-	{
-		
-		System.out.println("palindrome checker\n");
-		System.out.println("Enter the word:");
+	public static void main(String[] args) {
+		System.out.println("Palindrome checker");
 		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the string: ");
 		String s=sc.nextLine();
-		int l=s.length()-1;
-		if(l%2==1)
+		boolean res=true;
+		int n=s.length();
+		for(int i=0;i<n;i++)
 		{
-			s=s.toLowerCase();
-			
-			boolean res=true;
-			for(int i=0;i<=l;i++)
+			if(s.charAt(i)!=s.charAt(n-(i+1)))
 			{
-
-				if(s.charAt(i)!=s.charAt(l-i))
-					{
-						res=false;
-					}
-			}
-			if(res)
-			{
-				System.out.println("The given word is a palindrome");
+				System.out.println("Not a palindrome");
+				res=false;
+				break;
 			}
 			else
 			{
-				System.out.println("The given word is not a palindrome");
+				res=true;
 			}
 		}
-		else
+		if(res)
 		{
-			System.out.println("The given word is not a palindrome");
+			System.out.println("It is a palindrome");
 		}
 	}
-
 }
